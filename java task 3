@@ -1,0 +1,46 @@
+import java.util.*;
+
+public class ATM_Terminal {
+    public static void main(String args[]) {
+        int account_balance = 50000, extract,place;
+        Scanner sc = new Scanner(System.in);
+        while (true) {
+            System.out.println("ATMTerminal");
+            System.out.println("1. extract");
+            System.out.println("2. place");
+            System.out.println("3. examine the balance");
+            System.out.println("4. EXIT");
+            System.out.println("5. execute the neccessary task: ");
+
+            int ch = sc.nextInt();
+            switch (ch) {
+                case 1:
+                    System.out.print("input the amount you want to extract:");
+                    extract = sc.nextInt();
+                    if (account_balance >= extract) {
+                        account_balance = account_balance - extract;
+                        System.out.println("extract your funds.");
+                    } else {
+                        System.out.println("Unable to extract insufficient balance.");
+                    }
+                    System.out.println("");
+                    break;
+                case 2:
+                    System.out.println("Enter the desired place value :");
+                    place = sc.nextInt();
+                    account_balance = account_balance + place;
+                    System.out.println("Your money has been placed.");
+                    System.out.println("");
+                    break;
+                case 3:
+                    System.out.println("Bal : " + account_balance);
+                    System.out.println("");
+                    break;
+                case 4:
+                    System.out.println("");
+                    System.exit(0);
+            }
+        }
+
+    }
+}
